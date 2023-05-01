@@ -39,7 +39,6 @@ export class NewBook {
     </p>
     </div>
    `;
-    
     });
     NewBook.setEventListeners();
   }

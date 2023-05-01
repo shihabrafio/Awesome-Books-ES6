@@ -1,3 +1,4 @@
+/* eslint-disable import/prefer-default-export */
 const list = document.querySelector('#list');
 const add = document.querySelector('.button');
 let books = JSON.parse(localStorage.getItem('new-list')) || [

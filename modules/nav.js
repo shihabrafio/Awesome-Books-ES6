@@ -1,3 +1,4 @@
+/* eslint-disable import/prefer-default-export */
 const nav = () => {
   const addNew = document.getElementById('add-new');
   const read = document.getElementById('read');

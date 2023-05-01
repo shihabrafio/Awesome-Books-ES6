@@ -1,4 +1,4 @@
-function nav(){
+const nav=()=>{
 const addNew = document.getElementById('add-new');
 const read = document.getElementById('read');
 const contact = document.getElementById('contact');

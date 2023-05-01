@@ -1,6 +1,5 @@
 const list = document.querySelector('#list');
 const add = document.querySelector('.button');
-const remove = document.querySelector('.close');
 let books = JSON.parse(localStorage.getItem('new-list')) || [
   {
     title: 'Faust',
@@ -28,17 +27,21 @@ export class NewBook {
 
   static renderBooks= () => {
     localStorage.setItem('new-list', JSON.stringify(books));
+    console.log('thiis is render books') 
+
     list.innerHTML = '';
     books.forEach((book, index) => {
       list.innerHTML += ` 
     <div id="boi${index}" class='one-book-list'>
     <p> "${book.title}" by <i>  ${book.author} </i> </p>
     <p>
-      <button class="close" id=${index} onclick='NewBook.removeFunction(this)'>Remove</button>
+      <button class="close" id=${index} >Remove</button>
     </p>
     </div>
    `;
+    
     });
+    NewBook.setEventListeners();
   }
 
   static addFunction =(e) => {
@@ -61,11 +64,18 @@ export class NewBook {
     });
   }
 
-  static removeFunction = (button) => {
-    const num = parseInt(button.id, 10);
+  static removeFunction = (e) => {
+    console.log('this is remove, e.target -', e.target)
+    const num = parseInt(e.target.id, 10);
     books = books.filter((book) => book.id !== num);
     NewBook.updateIndex();
     NewBook.renderBooks();
+  }
+  static setEventListeners=()=>{
+    const buttons = document.querySelectorAll('.close');
+    buttons.forEach(btn=>{
+       btn.addEventListener('click', NewBook.removeFunction)
+    })
   }
 }
 

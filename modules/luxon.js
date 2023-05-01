@@ -6204,7 +6204,7 @@ class DateTime {
       reason instanceof Invalid ? reason : new Invalid(reason, explanation);
 
     if (Settings.throwOnInvalid) {
-      throw new InvalidDateTimeError(invalid);
+      throw new InvalidTTimeError(invalid);
     } else {
       return new DateTime({ invalid });
     }

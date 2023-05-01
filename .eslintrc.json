@@ -16,6 +16,7 @@
     "no-unused-vars": "off",
     "eol-last": "off",
     "camelcase": ["error", { "properties": "never" }],
+    "import/prefer-default-export": "off",
     "import/extensions": [
       1,
       {

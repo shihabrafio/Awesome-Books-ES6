@@ -5,7 +5,6 @@ const Date = () => {
   document.querySelector('.date').innerHTML = date.toLocaleString(
     DateTime.DATETIME_MED,
   );
-  console.log(date);
 };
 
 export { Date };

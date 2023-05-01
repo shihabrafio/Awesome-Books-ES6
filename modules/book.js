@@ -18,7 +18,7 @@ let books = JSON.parse(localStorage.getItem('new-list')) || [
   },
 ];
 
-export class NewBook {
+class NewBook {
   constructor(title, author) {
     this.title = title;
     this.author = author;
@@ -27,8 +27,6 @@ export class NewBook {
 
   static renderBooks= () => {
     localStorage.setItem('new-list', JSON.stringify(books));
-    console.log('thiis is render books') 
-
     list.innerHTML = '';
     books.forEach((book, index) => {
       list.innerHTML += ` 
@@ -64,20 +62,22 @@ export class NewBook {
   }
 
   static removeFunction = (e) => {
-    console.log('this is remove, e.target -', e.target)
     const num = parseInt(e.target.id, 10);
     books = books.filter((book) => book.id !== num);
     NewBook.updateIndex();
     NewBook.renderBooks();
   }
-  static setEventListeners=()=>{
+
+  static setEventListeners=() => {
     const buttons = document.querySelectorAll('.close');
-    buttons.forEach(btn=>{
-       btn.addEventListener('click', NewBook.removeFunction)
-    })
+    buttons.forEach((btn) => {
+      btn.addEventListener('click', NewBook.removeFunction);
+    });
   }
 }
 
 add.addEventListener('click', (e) => {
   NewBook.addFunction(e);
 });
+
+export { NewBook };
